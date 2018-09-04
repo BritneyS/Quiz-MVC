@@ -40,15 +40,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        clearAnswer()
-        getQuestions()
-        resetProperties()
-        setFirstQuestion()
+        startGame()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startGame() {
+        clearAnswer()
+        getQuestions()
+        resetProperties()
+        setFirstQuestion()
     }
     
     func resetProperties(){
@@ -75,13 +79,26 @@ class ViewController: UIViewController {
         }
     }
     
+    func gameOver() {
+     showAlert()
+    }
     
+    func showAlert(){
+        let alert = UIAlertController(title: "Quiz Complete!", message: "🤪", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default, handler: {(action:UIAlertAction!) in self.startGame()})
+        alert.addAction(continueAction)
+        present(alert, animated: true, completion: nil)
+    }
     @IBAction func showAnswer(_ sender: UIButton) {
         setAnswer(answerNum: self.currentQuestionIndex)
     }
     
     @IBAction func nextQuestion(_ sender: UIButton) {
-        self.currentQuestionIndex+=1
+        if self.currentQuestionIndex == 3 {
+            gameOver()
+        } else {
+            self.currentQuestionIndex+=1
+        }
         setQuestion(questionNum: self.currentQuestionIndex)
         clearAnswer()
     }
