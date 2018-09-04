@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        clearAnswer()
         getQuestions()
         resetProperties()
         setFirstQuestion()
@@ -63,20 +64,17 @@ class ViewController: UIViewController {
     }
     
     func setQuestion(questionNum:Int) {
-        questionLabel.text = quiz[questionNum].question
-        
+        if questionNum < quiz.count {
+            questionLabel.text = quiz[questionNum].question
+        }
     }
-//    func displayQuestion(question:String, questionNum:Int) {
-//        questionLabel.text = loadQuestion(questionNum: questionNum)
-//    }
     
     func setAnswer(answerNum:Int) {
-        answerLabel.text = quiz[answerNum].answer
+        if answerNum < quiz.count {
+            answerLabel.text = quiz[answerNum].answer
+        }
     }
     
-//    func displayAnswer(answer:String, answerNum:Int) {
-//        answerLabel.text = loadAnswer(answerNum: answerNum)
-//    }
     
     @IBAction func showAnswer(_ sender: UIButton) {
         setAnswer(answerNum: self.currentQuestionIndex)
