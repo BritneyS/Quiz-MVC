@@ -9,8 +9,10 @@
 import Foundation
 // data source 
 struct QuestionBank {
-    let questionsAndAnswers:[String:String] = ["Question1":"Answer1",
-                                               "Question2":"Answer2",
-                                               "Question3":"Answer3",
-                                               "Question4":"Answer4"]
+    let questionsAndAnswers:[String:String] = ["What is the name of Luke Skywalker's birth mother?":"Princess Amydala",
+                                               "In the Infinity War comics, who is Thanos in love with?":"Lady Death",
+                                               "Who was Steve's (Captain America's) best friend in WW2?":"Bucky Barnes",
+                                               "Who was the Watchmen member that was disentegrated through radiation?":"Dr. Manhattan"]
 }
+
+
