@@ -83,7 +83,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextQuestion(_ sender: UIButton) {
-        
+        self.currentQuestionIndex+=1
+        setQuestion(questionNum: self.currentQuestionIndex)
+        clearAnswer()
     }
     
     
